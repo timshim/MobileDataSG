@@ -16,6 +16,15 @@ final class MobileDataViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         self.title = viewModel.screenTitle
+
+        viewModel.fetchMobileUsageData { [weak self] error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            if let dataRecords = self?.viewModel.dataRecords {
+                print(dataRecords)
+            }
+        }
     }
 
 }
