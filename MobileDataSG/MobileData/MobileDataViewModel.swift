@@ -9,5 +9,16 @@
 final class MobileDataViewModel {
 
     let screenTitle = "Mobile Data Usage"
+    var dataRecords: [DataRecord] = []
+
+    func fetchMobileUsageData(completion: @escaping (Error?) -> Void) {
+        GovDataService.fetchData(resource: .mobileDataUsage) { [weak self] (dataRecords, error) in
+            if let error = error {
+                completion(error)
+            }
+            self?.dataRecords = dataRecords
+            completion(nil)
+        }
+    }
     
 }
