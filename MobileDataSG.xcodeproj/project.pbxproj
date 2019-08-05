@@ -12,6 +12,9 @@
 		482ACA6422F8945A001080BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 482ACA6222F8945A001080BE /* LaunchScreen.storyboard */; };
 		482ACA6F22F8945A001080BE /* MobileDataSGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA6E22F8945A001080BE /* MobileDataSGTests.swift */; };
 		482ACA7A22F8945A001080BE /* MobileDataSGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA7922F8945A001080BE /* MobileDataSGUITests.swift */; };
+		482ACA8922F894F4001080BE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA8822F894F4001080BE /* AppCoordinator.swift */; };
+		482ACA8C22F89526001080BE /* MobileDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA8B22F89526001080BE /* MobileDataViewModel.swift */; };
+		482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA8D22F89534001080BE /* MobileDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		482ACA7522F8945A001080BE /* MobileDataSGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileDataSGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		482ACA7922F8945A001080BE /* MobileDataSGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataSGUITests.swift; sourceTree = "<group>"; };
 		482ACA7B22F8945A001080BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		482ACA8822F894F4001080BE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		482ACA8B22F89526001080BE /* MobileDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewModel.swift; sourceTree = "<group>"; };
+		482ACA8D22F89534001080BE /* MobileDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				482ACA8722F8947A001080BE /* Main */,
+				482ACA8A22F89512001080BE /* MobileData */,
 			);
 			path = MobileDataSG;
 			sourceTree = "<group>";
@@ -120,11 +127,21 @@
 			isa = PBXGroup;
 			children = (
 				482ACA5922F89459001080BE /* AppDelegate.swift */,
+				482ACA8822F894F4001080BE /* AppCoordinator.swift */,
 				482ACA6022F8945A001080BE /* Assets.xcassets */,
 				482ACA6222F8945A001080BE /* LaunchScreen.storyboard */,
 				482ACA6522F8945A001080BE /* Info.plist */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		482ACA8A22F89512001080BE /* MobileData */ = {
+			isa = PBXGroup;
+			children = (
+				482ACA8B22F89526001080BE /* MobileDataViewModel.swift */,
+				482ACA8D22F89534001080BE /* MobileDataViewController.swift */,
+			);
+			path = MobileData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482ACA8C22F89526001080BE /* MobileDataViewModel.swift in Sources */,
+				482ACA8922F894F4001080BE /* AppCoordinator.swift in Sources */,
+				482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */,
 				482ACA5A22F89459001080BE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
