@@ -16,6 +16,7 @@
 		482ACA8C22F89526001080BE /* MobileDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA8B22F89526001080BE /* MobileDataViewModel.swift */; };
 		482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA8D22F89534001080BE /* MobileDataViewController.swift */; };
 		482ACA9122F89616001080BE /* GovDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9022F89616001080BE /* GovDataService.swift */; };
+		482ACA9322F896C4001080BE /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9222F896C4001080BE /* NetworkingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		482ACA8B22F89526001080BE /* MobileDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewModel.swift; sourceTree = "<group>"; };
 		482ACA8D22F89534001080BE /* MobileDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewController.swift; sourceTree = "<group>"; };
 		482ACA9022F89616001080BE /* GovDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovDataService.swift; sourceTree = "<group>"; };
+		482ACA9222F896C4001080BE /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				482ACA9022F89616001080BE /* GovDataService.swift */,
+				482ACA9222F896C4001080BE /* NetworkingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				482ACA8C22F89526001080BE /* MobileDataViewModel.swift in Sources */,
 				482ACA8922F894F4001080BE /* AppCoordinator.swift in Sources */,
 				482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */,
+				482ACA9322F896C4001080BE /* NetworkingService.swift in Sources */,
 				482ACA5A22F89459001080BE /* AppDelegate.swift in Sources */,
 				482ACA9122F89616001080BE /* GovDataService.swift in Sources */,
 			);
