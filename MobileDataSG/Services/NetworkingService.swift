@@ -38,7 +38,7 @@ final class NetworkingService {
             } else {
                 completion(nil, nil)
             }
-            }.resume()
+        }.resume()
     }
 
 }

@@ -19,6 +19,7 @@
 		482ACA9322F896C4001080BE /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9222F896C4001080BE /* NetworkingService.swift */; };
 		482ACA9622F89765001080BE /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9522F89765001080BE /* Dictionary.swift */; };
 		482ACA9A22F89782001080BE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9922F89782001080BE /* URL.swift */; };
+		482ACA9D22F897FB001080BE /* DataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9C22F897FB001080BE /* DataRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		482ACA9222F896C4001080BE /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		482ACA9522F89765001080BE /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		482ACA9922F89782001080BE /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		482ACA9C22F897FB001080BE /* DataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				482ACA8A22F89512001080BE /* MobileData */,
 				482ACA8F22F895F9001080BE /* Services */,
 				482ACA9422F89742001080BE /* Extensions */,
+				482ACA9B22F897EA001080BE /* Models */,
 			);
 			path = MobileDataSG;
 			sourceTree = "<group>";
@@ -170,6 +173,14 @@
 				482ACA9922F89782001080BE /* URL.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		482ACA9B22F897EA001080BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				482ACA9C22F897FB001080BE /* DataRecord.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482ACA9D22F897FB001080BE /* DataRecord.swift in Sources */,
 				482ACA8C22F89526001080BE /* MobileDataViewModel.swift in Sources */,
 				482ACA8922F894F4001080BE /* AppCoordinator.swift in Sources */,
 				482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */,
