@@ -18,7 +18,10 @@ final class NetworkingService {
     }
 
     static func request(url: URL, httpMethod: HTTPMethod, params: [String: Any], completion: @escaping (Any?, Error?) -> Void) {
-        var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10)
+        var mutableUrl = url
+        mutableUrl = mutableUrl.appendingQueryParameters(params)
+        
+        var request = URLRequest(url: mutableUrl, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10)
         request.httpMethod = httpMethod.rawValue
 
         URLSession.shared.dataTask(with: request) { (data, response, error) in
