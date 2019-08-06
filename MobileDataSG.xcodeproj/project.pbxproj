@@ -10,7 +10,6 @@
 		482ACA5A22F89459001080BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA5922F89459001080BE /* AppDelegate.swift */; };
 		482ACA6122F8945A001080BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482ACA6022F8945A001080BE /* Assets.xcassets */; };
 		482ACA6422F8945A001080BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 482ACA6222F8945A001080BE /* LaunchScreen.storyboard */; };
-		482ACA6F22F8945A001080BE /* MobileDataSGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA6E22F8945A001080BE /* MobileDataSGTests.swift */; };
 		482ACA7A22F8945A001080BE /* MobileDataSGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA7922F8945A001080BE /* MobileDataSGUITests.swift */; };
 		482ACA8922F894F4001080BE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA8822F894F4001080BE /* AppCoordinator.swift */; };
 		482ACA8C22F89526001080BE /* MobileDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA8B22F89526001080BE /* MobileDataViewModel.swift */; };
@@ -20,6 +19,8 @@
 		482ACA9622F89765001080BE /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9522F89765001080BE /* Dictionary.swift */; };
 		482ACA9A22F89782001080BE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9922F89782001080BE /* URL.swift */; };
 		482ACA9D22F897FB001080BE /* DataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9C22F897FB001080BE /* DataRecord.swift */; };
+		482ACAA322F89F37001080BE /* MobileDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAA222F89F37001080BE /* MobileDataViewModelTests.swift */; };
+		482ACAAA22F91C38001080BE /* MockNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAA922F91C38001080BE /* MockNetworkingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,6 @@
 		482ACA6322F8945A001080BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		482ACA6522F8945A001080BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		482ACA6A22F8945A001080BE /* MobileDataSGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileDataSGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		482ACA6E22F8945A001080BE /* MobileDataSGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataSGTests.swift; sourceTree = "<group>"; };
 		482ACA7022F8945A001080BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		482ACA7522F8945A001080BE /* MobileDataSGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileDataSGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		482ACA7922F8945A001080BE /* MobileDataSGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataSGUITests.swift; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		482ACA9522F89765001080BE /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		482ACA9922F89782001080BE /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		482ACA9C22F897FB001080BE /* DataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRecord.swift; sourceTree = "<group>"; };
+		482ACAA222F89F37001080BE /* MobileDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewModelTests.swift; sourceTree = "<group>"; };
+		482ACAA922F91C38001080BE /* MockNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +123,8 @@
 		482ACA6D22F8945A001080BE /* MobileDataSGTests */ = {
 			isa = PBXGroup;
 			children = (
-				482ACA6E22F8945A001080BE /* MobileDataSGTests.swift */,
+				482ACAA822F91C29001080BE /* Mocks */,
+				482ACAA222F89F37001080BE /* MobileDataViewModelTests.swift */,
 				482ACA7022F8945A001080BE /* Info.plist */,
 			);
 			path = MobileDataSGTests;
@@ -181,6 +184,14 @@
 				482ACA9C22F897FB001080BE /* DataRecord.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		482ACAA822F91C29001080BE /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				482ACAA922F91C38001080BE /* MockNetworkingService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,7 +340,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				482ACA6F22F8945A001080BE /* MobileDataSGTests.swift in Sources */,
+				482ACAA322F89F37001080BE /* MobileDataViewModelTests.swift in Sources */,
+				482ACAAA22F91C38001080BE /* MockNetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

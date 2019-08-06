@@ -24,10 +24,13 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
+        let networkingService = NetworkingService()
+        let govDataService = GovDataService(networkingService: networkingService)
+        let mobileDataViewModel = MobileDataViewModel(govDataService: govDataService)
+
         let mobileDataVC = MobileDataViewController()
-        let mobileDataViewModel = MobileDataViewModel()
         mobileDataVC.viewModel = mobileDataViewModel
+
         navigationController.pushViewController(mobileDataVC, animated: false)
     }
 }
-

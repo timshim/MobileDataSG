@@ -15,12 +15,18 @@ final class GovDataService {
     }
     typealias RecordsResponse = ([DataRecord], Error?) -> Void
 
-    private static let endpoint = "https://data.gov.sg/api/action/datastore_search"
-    private static let offset = 14
-    private static let fields = ["quarter", "volume_of_mobile_data"]
-    private static let limit = 40
+    private let endpoint = "https://data.gov.sg/api/action/datastore_search"
+    private let offset = 14
+    private let fields = ["quarter", "volume_of_mobile_data"]
+    private let limit = 40
 
-    static func fetchData(resource: DataResource, completion: @escaping RecordsResponse) {
+    private var networkingService: NetworkingServiceProtocol
+
+    init(networkingService: NetworkingServiceProtocol) {
+        self.networkingService = networkingService
+    }
+
+    func fetchData(resource: DataResource, completion: @escaping RecordsResponse) {
         guard let url = URL(string: endpoint) else { return }
         let params = [
             "resource_id": resource.rawValue,
@@ -29,7 +35,7 @@ final class GovDataService {
             "limit": "\(limit)",
         ]
 
-        NetworkingService.request(url: url, httpMethod: .GET, params: params) { (json, error) in
+        networkingService.request(url: url, httpMethod: .GET, params: params) { (json, error) in
             guard let json = json as? [String: Any] else { return }
             guard let success = json["success"] as? Bool, success == true else { return }
             guard let result = json["result"] as? [String: Any] else { return }

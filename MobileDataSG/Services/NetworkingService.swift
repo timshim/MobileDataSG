@@ -8,16 +8,21 @@
 
 import UIKit
 
-final class NetworkingService {
+enum HTTPMethod: String {
+    case GET, POST, PUT, PATCH, DELETE
+}
 
-    enum HTTPMethod: String {
-        case GET, POST, PUT, PATCH, DELETE
-    }
-    enum NetworkingError: Error {
-        case requestError(message: String), jsonError
-    }
+enum NetworkingError: Error {
+    case requestError(message: String), jsonError(message: String)
+}
 
-    static func request(url: URL, httpMethod: HTTPMethod, params: [String: Any], completion: @escaping (Any?, Error?) -> Void) {
+protocol NetworkingServiceProtocol {
+    func request(url: URL, httpMethod: HTTPMethod, params: [String: Any], completion: @escaping (Any?, Error?) -> Void)
+}
+
+final class NetworkingService: NetworkingServiceProtocol {
+
+    func request(url: URL, httpMethod: HTTPMethod, params: [String: Any], completion: @escaping (Any?, Error?) -> Void) {
         var mutableUrl = url
         mutableUrl = mutableUrl.appendingQueryParameters(params)
         
@@ -32,11 +37,9 @@ final class NetworkingService {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     completion(json, nil)
-                } catch {
-                    completion(nil, NetworkingError.jsonError)
+                } catch (let error) {
+                    completion(nil, NetworkingError.jsonError(message: error.localizedDescription))
                 }
-            } else {
-                completion(nil, nil)
             }
         }.resume()
     }
