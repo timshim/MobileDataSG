@@ -70,12 +70,19 @@ extension MobileDataViewController: UICollectionViewDataSource, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MobileDataCell else { return UICollectionViewCell() }
         let yearlyRecord = viewModel.yearlyRecords[indexPath.item]
         cell.yearlyRecord = yearlyRecord
+        cell.fillPercentage = fillPercentage(volume: yearlyRecord.totalVolume)
+        cell.indexItem = indexPath.item
         cell.configure()
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 80)
+    }
+
+    private func fillPercentage(volume: Double) -> Double {
+        let percent = volume * 100 / viewModel.maxVolume
+        return round(percent * 100) / 100
     }
 
 }

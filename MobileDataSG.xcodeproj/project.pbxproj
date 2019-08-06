@@ -25,6 +25,7 @@
 		482ACAB122F95CFB001080BE /* MobileDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB022F95CFB001080BE /* MobileDataCell.swift */; };
 		482ACAB322F9722F001080BE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB222F9722F001080BE /* Color.swift */; };
 		482ACAB522F97889001080BE /* YearlyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB422F97889001080BE /* YearlyRecord.swift */; };
+		482ACAB722F98611001080BE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB622F98611001080BE /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		482ACAB022F95CFB001080BE /* MobileDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataCell.swift; sourceTree = "<group>"; };
 		482ACAB222F9722F001080BE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		482ACAB422F97889001080BE /* YearlyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyRecord.swift; sourceTree = "<group>"; };
+		482ACAB622F98611001080BE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			children = (
 				482ACA9522F89765001080BE /* Dictionary.swift */,
 				482ACA9922F89782001080BE /* URL.swift */,
+				482ACAB622F98611001080BE /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				482ACA9D22F897FB001080BE /* DataRecord.swift in Sources */,
+				482ACAB722F98611001080BE /* UIColor.swift in Sources */,
 				482ACA8C22F89526001080BE /* MobileDataViewModel.swift in Sources */,
 				482ACA8922F894F4001080BE /* AppCoordinator.swift in Sources */,
 				482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */,
