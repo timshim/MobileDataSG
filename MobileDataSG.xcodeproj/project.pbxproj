@@ -21,6 +21,7 @@
 		482ACA9D22F897FB001080BE /* DataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACA9C22F897FB001080BE /* DataRecord.swift */; };
 		482ACAA322F89F37001080BE /* MobileDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAA222F89F37001080BE /* MobileDataViewModelTests.swift */; };
 		482ACAAA22F91C38001080BE /* MockNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAA922F91C38001080BE /* MockNetworkingService.swift */; };
+		482ACAAF22F94807001080BE /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAAE22F94807001080BE /* Alertable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		482ACA9C22F897FB001080BE /* DataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRecord.swift; sourceTree = "<group>"; };
 		482ACAA222F89F37001080BE /* MobileDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewModelTests.swift; sourceTree = "<group>"; };
 		482ACAA922F91C38001080BE /* MockNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingService.swift; sourceTree = "<group>"; };
+		482ACAAE22F94807001080BE /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				482ACA8F22F895F9001080BE /* Services */,
 				482ACA9422F89742001080BE /* Extensions */,
 				482ACA9B22F897EA001080BE /* Models */,
+				482ACAAD22F947F2001080BE /* Protocols */,
 			);
 			path = MobileDataSG;
 			sourceTree = "<group>";
@@ -192,6 +195,14 @@
 				482ACAA922F91C38001080BE /* MockNetworkingService.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		482ACAAD22F947F2001080BE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				482ACAAE22F94807001080BE /* Alertable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 				482ACA8C22F89526001080BE /* MobileDataViewModel.swift in Sources */,
 				482ACA8922F894F4001080BE /* AppCoordinator.swift in Sources */,
 				482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */,
+				482ACAAF22F94807001080BE /* Alertable.swift in Sources */,
 				482ACA9322F896C4001080BE /* NetworkingService.swift in Sources */,
 				482ACA9622F89765001080BE /* Dictionary.swift in Sources */,
 				482ACA5A22F89459001080BE /* AppDelegate.swift in Sources */,

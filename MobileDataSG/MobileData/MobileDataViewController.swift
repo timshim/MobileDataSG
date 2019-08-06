@@ -8,9 +8,14 @@
 
 import UIKit
 
-final class MobileDataViewController: UIViewController {
+final class MobileDataViewController: UIViewController, Alertable {
 
     var viewModel: MobileDataViewModel!
+
+    private lazy var collectionView: UICollectionView = {
+        let cv = UICollectionView()
+        return cv
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +24,10 @@ final class MobileDataViewController: UIViewController {
 
         viewModel.fetchMobileUsageData { [weak self] error in
             if let error = error {
-                print(error.localizedDescription)
+                self?.showAlert(message: error.localizedDescription)
+                return
             }
-            if let dataRecords = self?.viewModel.dataRecords {
-                print(dataRecords)
-            }
+            self?.collectionView.reloadData()
         }
     }
 
