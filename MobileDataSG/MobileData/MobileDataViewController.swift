@@ -63,13 +63,13 @@ final class MobileDataViewController: UIViewController, Alertable {
 extension MobileDataViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.dataRecords.count
+        return viewModel.yearlyRecords.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MobileDataCell else { return UICollectionViewCell() }
-        let dataRecord = viewModel.dataRecords[indexPath.item]
-        cell.dataRecord = dataRecord
+        let yearlyRecord = viewModel.yearlyRecords[indexPath.item]
+        cell.yearlyRecord = yearlyRecord
         cell.configure()
         return cell
     }

@@ -10,7 +10,7 @@ import UIKit
 
 final class MobileDataCell: UICollectionViewCell {
 
-    var dataRecord: DataRecord?
+    var yearlyRecord: YearlyRecord?
 
     private let yearLabel: UILabel = {
         let label = UILabel()
@@ -37,11 +37,9 @@ final class MobileDataCell: UICollectionViewCell {
 
     private var yearVolumeStackView: UIStackView!
 
-    private func setupYearLabel(_ year: Int?) {
+    private func setupYearLabel(_ year: Int) {
         addSubview(yearLabel)
-        if let year = year {
-            yearLabel.text = "\(year)"
-        }
+        yearLabel.text = "\(year)"
     }
 
     private func setupVolumeLabel(_ volume: Double) {
@@ -71,12 +69,12 @@ final class MobileDataCell: UICollectionViewCell {
     }
 
     func configure() {
-        guard let dataRecord = dataRecord else { return }
+        guard let yearlyRecord = yearlyRecord else { return }
 
         backgroundColor = Color.barBackgroundColor
 
-        setupYearLabel(dataRecord.getYear())
-        setupVolumeLabel(dataRecord.volume)
+        setupYearLabel(yearlyRecord.year)
+        setupVolumeLabel(yearlyRecord.totalVolume)
         setupYearVolumeStackView()
         setupSeparator()
     }

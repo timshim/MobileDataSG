@@ -24,6 +24,7 @@
 		482ACAAF22F94807001080BE /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAAE22F94807001080BE /* Alertable.swift */; };
 		482ACAB122F95CFB001080BE /* MobileDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB022F95CFB001080BE /* MobileDataCell.swift */; };
 		482ACAB322F9722F001080BE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB222F9722F001080BE /* Color.swift */; };
+		482ACAB522F97889001080BE /* YearlyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB422F97889001080BE /* YearlyRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		482ACAAE22F94807001080BE /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		482ACAB022F95CFB001080BE /* MobileDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataCell.swift; sourceTree = "<group>"; };
 		482ACAB222F9722F001080BE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		482ACAB422F97889001080BE /* YearlyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				482ACA9C22F897FB001080BE /* DataRecord.swift */,
+				482ACAB422F97889001080BE /* YearlyRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */,
 				482ACAAF22F94807001080BE /* Alertable.swift in Sources */,
 				482ACAB322F9722F001080BE /* Color.swift in Sources */,
+				482ACAB522F97889001080BE /* YearlyRecord.swift in Sources */,
 				482ACA9322F896C4001080BE /* NetworkingService.swift in Sources */,
 				482ACA9622F89765001080BE /* Dictionary.swift in Sources */,
 				482ACA5A22F89459001080BE /* AppDelegate.swift in Sources */,
