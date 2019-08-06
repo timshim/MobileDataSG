@@ -12,17 +12,25 @@ enum HTTPMethod: String {
     case GET, POST, PUT, PATCH, DELETE
 }
 
-enum NetworkingError: Error {
-    case requestError(message: String), jsonError(message: String)
+protocol ErrorProtocol: LocalizedError {
+    var message: String? { get }
+}
+
+struct NetworkingError: ErrorProtocol {
+    var message: String?
+
+    init(message: String) {
+        self.message = message
+    }
 }
 
 protocol NetworkingServiceProtocol {
-    func request(url: URL, httpMethod: HTTPMethod, params: [String: Any], completion: @escaping (Any?, Error?) -> Void)
+    func request(url: URL, httpMethod: HTTPMethod, params: [String: Any], completion: @escaping (Any?, ErrorProtocol?) -> Void)
 }
 
 final class NetworkingService: NetworkingServiceProtocol {
 
-    func request(url: URL, httpMethod: HTTPMethod, params: [String: Any], completion: @escaping (Any?, Error?) -> Void) {
+    func request(url: URL, httpMethod: HTTPMethod, params: [String: Any], completion: @escaping (Any?, ErrorProtocol?) -> Void) {
         var mutableUrl = url
         mutableUrl = mutableUrl.appendingQueryParameters(params)
         
@@ -30,15 +38,17 @@ final class NetworkingService: NetworkingServiceProtocol {
         request.httpMethod = httpMethod.rawValue
 
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                completion(nil, NetworkingError.requestError(message: error.localizedDescription))
+            if error != nil {
+                let requestError = NetworkingError(message: "Request error")
+                completion(nil, requestError)
             }
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     completion(json, nil)
-                } catch (let error) {
-                    completion(nil, NetworkingError.jsonError(message: error.localizedDescription))
+                } catch {
+                    let jsonError = NetworkingError(message: "JSON serialization error")
+                    completion(nil, jsonError)
                 }
             }
         }.resume()

@@ -13,7 +13,7 @@ final class GovDataService {
     enum DataResource: String {
         case mobileDataUsage = "a807b7ab-6cad-4aa6-87d0-e283a7353a0f"
     }
-    typealias RecordsResponse = ([DataRecord], Error?) -> Void
+    typealias RecordsResponse = ([DataRecord], ErrorProtocol?) -> Void
 
     private let endpoint = "https://data.gov.sg/api/action/datastore_search"
     private let offset = 14

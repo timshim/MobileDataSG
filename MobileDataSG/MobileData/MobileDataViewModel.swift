@@ -16,7 +16,7 @@ final class MobileDataViewModel {
         self.govDataService = govDataService
     }
 
-    func fetchMobileUsageData(completion: @escaping (Error?) -> Void) {
+    func fetchMobileUsageData(completion: @escaping (ErrorProtocol?) -> Void) {
         govDataService.fetchData(resource: .mobileDataUsage) { [weak self] (dataRecords, error) in
             if let error = error {
                 completion(error)

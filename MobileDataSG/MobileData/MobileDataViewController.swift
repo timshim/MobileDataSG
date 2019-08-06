@@ -12,22 +12,16 @@ final class MobileDataViewController: UIViewController, Alertable {
 
     var viewModel: MobileDataViewModel!
 
-    private lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView()
-        return cv
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         self.title = viewModel.screenTitle
 
         viewModel.fetchMobileUsageData { [weak self] error in
-            if let error = error {
-                self?.showAlert(message: error.localizedDescription)
+            if let error = error, let message = error.message {
+                self?.showAlert(message: message)
                 return
             }
-            self?.collectionView.reloadData()
         }
     }
 
