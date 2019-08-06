@@ -9,7 +9,11 @@
 final class MobileDataViewModel {
 
     let screenTitle = "Mobile Data Usage"
-    var dataRecords: [DataRecord] = []
+    var dataRecords: [DataRecord] = [] {
+        didSet {
+            
+        }
+    }
     var govDataService: GovDataService
 
     init(govDataService: GovDataService) {

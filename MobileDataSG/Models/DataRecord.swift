@@ -11,4 +11,9 @@ struct DataRecord {
     var quarter: String
     var volume: Double
 
+    func getYear() -> Int? {
+        guard let yearString = quarter.split(separator: "-").first else { return nil }
+        return Int(yearString)
+    }
+
 }

@@ -52,7 +52,7 @@ final class MobileDataViewController: UIViewController, Alertable {
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(MobileDataCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         collectionView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
@@ -63,16 +63,19 @@ final class MobileDataViewController: UIViewController, Alertable {
 extension MobileDataViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.dataRecords.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MobileDataCell else { return UICollectionViewCell() }
+        let dataRecord = viewModel.dataRecords[indexPath.item]
+        cell.dataRecord = dataRecord
+        cell.configure()
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 100)
+        return CGSize(width: UIScreen.main.bounds.width, height: 80)
     }
 
 }

@@ -22,6 +22,8 @@
 		482ACAA322F89F37001080BE /* MobileDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAA222F89F37001080BE /* MobileDataViewModelTests.swift */; };
 		482ACAAA22F91C38001080BE /* MockNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAA922F91C38001080BE /* MockNetworkingService.swift */; };
 		482ACAAF22F94807001080BE /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAAE22F94807001080BE /* Alertable.swift */; };
+		482ACAB122F95CFB001080BE /* MobileDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB022F95CFB001080BE /* MobileDataCell.swift */; };
+		482ACAB322F9722F001080BE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ACAB222F9722F001080BE /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		482ACAA222F89F37001080BE /* MobileDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewModelTests.swift; sourceTree = "<group>"; };
 		482ACAA922F91C38001080BE /* MockNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingService.swift; sourceTree = "<group>"; };
 		482ACAAE22F94807001080BE /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		482ACAB022F95CFB001080BE /* MobileDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataCell.swift; sourceTree = "<group>"; };
+		482ACAB222F9722F001080BE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 				482ACA6022F8945A001080BE /* Assets.xcassets */,
 				482ACA6222F8945A001080BE /* LaunchScreen.storyboard */,
 				482ACA6522F8945A001080BE /* Info.plist */,
+				482ACAB222F9722F001080BE /* Color.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			children = (
 				482ACA8B22F89526001080BE /* MobileDataViewModel.swift */,
 				482ACA8D22F89534001080BE /* MobileDataViewController.swift */,
+				482ACAB022F95CFB001080BE /* MobileDataCell.swift */,
 			);
 			path = MobileData;
 			sourceTree = "<group>";
@@ -340,11 +346,13 @@
 				482ACA8922F894F4001080BE /* AppCoordinator.swift in Sources */,
 				482ACA8E22F89534001080BE /* MobileDataViewController.swift in Sources */,
 				482ACAAF22F94807001080BE /* Alertable.swift in Sources */,
+				482ACAB322F9722F001080BE /* Color.swift in Sources */,
 				482ACA9322F896C4001080BE /* NetworkingService.swift in Sources */,
 				482ACA9622F89765001080BE /* Dictionary.swift in Sources */,
 				482ACA5A22F89459001080BE /* AppDelegate.swift in Sources */,
 				482ACA9122F89616001080BE /* GovDataService.swift in Sources */,
 				482ACA9A22F89782001080BE /* URL.swift in Sources */,
+				482ACAB122F95CFB001080BE /* MobileDataCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
