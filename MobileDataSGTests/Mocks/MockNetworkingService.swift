@@ -13,9 +13,9 @@ final class MockNetworkingService: NetworkingServiceProtocol {
 
     var returnsError = false
 
-    func request(url: URL, httpMethod: HTTPMethod, params: [String : Any], completion: @escaping (Any?, Error?) -> Void) {
+    func request(url: URL, httpMethod: HTTPMethod, params: [String : Any], completion: @escaping (Any?, ErrorProtocol?) -> Void) {
         if returnsError {
-            let error = NetworkingError.requestError(message: "Request error")
+            let error = NetworkingError(message: "Request error")
             completion(nil, error)
             return
         }
