@@ -7,28 +7,84 @@
 //
 
 import XCTest
+@testable import MobileDataSG
 
 class MobileDataSGUITests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var sut: XCUIApplication!
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+    override func setUp() {
+        super.setUp()
         continueAfterFailure = false
 
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        sut = XCUIApplication()
+        sut.launch()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        super.tearDown()
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_navTitle_exists() {
+        XCTAssertTrue(sut.navigationBars["Mobile Data Usage"].otherElements["Mobile Data Usage"].exists)
+    }
+
+    func test_collectionView_has10cells() {
+        let collectionCells = sut.collectionViews.children(matching: .cell)
+        XCTAssertEqual(collectionCells.count, 9)
+    }
+
+    func test_collectionViewCells_include2labels() {
+        let collectionViewsQuery = sut.collectionViews
+        for index in 0..<collectionViewsQuery.cells.count {
+            let element = collectionViewsQuery.cells.element(boundBy: index)
+            XCTAssertEqual(element.staticTexts.count, 2)
+        }
+    }
+
+    func test_collectionViewCells_containsFillView() {
+        let collectionViewsQuery = sut.collectionViews
+        for index in 0..<collectionViewsQuery.cells.count {
+            let element = collectionViewsQuery.cells.element(boundBy: index).otherElements["fillView"]
+            XCTAssertTrue(element.exists)
+        }
+    }
+
+    func test_collectionViewCells_357ContainsInfoButton() {
+        let collectionViewsQuery = sut.collectionViews
+        let cell3InfoButton = collectionViewsQuery.cells.element(boundBy: 3).buttons["infoButton"]
+        let cell5InfoButton = collectionViewsQuery.cells.element(boundBy: 5).buttons["infoButton"]
+        let cell7InfoButton = collectionViewsQuery.cells.element(boundBy: 7).buttons["infoButton"]
+
+        XCTAssertTrue(cell3InfoButton.exists)
+        XCTAssertTrue(cell5InfoButton.exists)
+        XCTAssertTrue(cell7InfoButton.exists)
+    }
+
+    func test_collectionViewCells_0124689ContainsInfoButton() {
+        let collectionViewsQuery = sut.collectionViews
+        let cell0InfoButton = collectionViewsQuery.cells.element(boundBy: 0).buttons["infoButton"]
+        let cell1InfoButton = collectionViewsQuery.cells.element(boundBy: 1).buttons["infoButton"]
+        let cell2InfoButton = collectionViewsQuery.cells.element(boundBy: 2).buttons["infoButton"]
+        let cell4InfoButton = collectionViewsQuery.cells.element(boundBy: 4).buttons["infoButton"]
+        let cell6InfoButton = collectionViewsQuery.cells.element(boundBy: 6).buttons["infoButton"]
+        let cell8InfoButton = collectionViewsQuery.cells.element(boundBy: 8).buttons["infoButton"]
+        let cell9InfoButton = collectionViewsQuery.cells.element(boundBy: 9).buttons["infoButton"]
+
+        XCTAssertFalse(cell0InfoButton.exists)
+        XCTAssertFalse(cell1InfoButton.exists)
+        XCTAssertFalse(cell2InfoButton.exists)
+        XCTAssertFalse(cell4InfoButton.exists)
+        XCTAssertFalse(cell6InfoButton.exists)
+        XCTAssertFalse(cell8InfoButton.exists)
+        XCTAssertFalse(cell9InfoButton.exists)
+    }
+
+    func test_infoButton_tapShowsAlert() {
+        sut.collectionViews.children(matching: .cell).element(boundBy: 3)/*@START_MENU_TOKEN@*/.buttons["infoButton"]/*[[".buttons[\"image button\"]",".buttons[\"infoButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        let alert = sut.alerts["Info"].buttons["OK"]
+        XCTAssertTrue(alert.exists)
     }
 
 }

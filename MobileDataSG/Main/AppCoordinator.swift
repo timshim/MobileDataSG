@@ -31,6 +31,7 @@ final class AppCoordinator: Coordinator {
         let mobileDataVC = MobileDataViewController()
         mobileDataVC.viewModel = mobileDataViewModel
 
+        navigationController.navigationBar.shadowImage = UIImage()
         navigationController.pushViewController(mobileDataVC, animated: false)
     }
 }

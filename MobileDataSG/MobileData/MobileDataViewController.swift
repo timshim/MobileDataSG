@@ -12,14 +12,20 @@ final class MobileDataViewController: UIViewController, Alertable {
 
     var viewModel: MobileDataViewModel!
 
-    let collectionView: UICollectionView = {
+    private let collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         let cv = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: flowLayout)
-        cv.translatesAutoresizingMaskIntoConstraints = false
         cv.backgroundColor = .white
         return cv
+    }()
+
+    private let activityIndicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView(style: .gray)
+        ai.hidesWhenStopped = true
+        ai.translatesAutoresizingMaskIntoConstraints = false
+        return ai
     }()
 
     private let reuseIdentifier = "cell"
@@ -27,8 +33,9 @@ final class MobileDataViewController: UIViewController, Alertable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
-        fetchData()
         setupCollectionView()
+        setupActivityIndicator()
+        fetchData()
     }
 
     private func setupNavBar() {
@@ -36,13 +43,23 @@ final class MobileDataViewController: UIViewController, Alertable {
         self.title = viewModel.screenTitle
     }
 
+    private func setupActivityIndicator() {
+        collectionView.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+
     private func fetchData() {
+        activityIndicator.startAnimating()
         viewModel.fetchMobileUsageData { [weak self] error in
             if let error = error, let message = error.message {
                 self?.showAlert(message: message)
                 return
             }
-            self?.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.collectionView.reloadData()
+            }
         }
     }
 
@@ -53,9 +70,6 @@ final class MobileDataViewController: UIViewController, Alertable {
         collectionView.delegate = self
 
         collectionView.register(MobileDataCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        collectionView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
 
 }
@@ -72,6 +86,8 @@ extension MobileDataViewController: UICollectionViewDataSource, UICollectionView
         cell.yearlyRecord = yearlyRecord
         cell.fillPercentage = fillPercentage(volume: yearlyRecord.totalVolume)
         cell.indexItem = indexPath.item
+        cell.dataRecords = viewModel.dataRecords
+        cell.delegate = self
         cell.configure()
         return cell
     }
@@ -83,6 +99,25 @@ extension MobileDataViewController: UICollectionViewDataSource, UICollectionView
     private func fillPercentage(volume: Double) -> Double {
         let percent = volume * 100 / viewModel.maxVolume
         return round(percent * 100) / 100
+    }
+
+}
+
+extension MobileDataViewController: CellActionDelegate {
+
+    func didTapInfoButton(record: YearlyRecord) {
+        let dataRecords = viewModel.dataRecords
+        var quarterlyRecords = [DataRecord]()
+        var message = ""
+
+        for dataRecord in dataRecords {
+            if let year = dataRecord.getYear(), year == record.year {
+                quarterlyRecords.append(dataRecord)
+                message.append("\(dataRecord.quarter): \(dataRecord.volume) PB\r")
+            }
+        }
+
+        showAlert(message: message)
     }
 
 }
