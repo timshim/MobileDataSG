@@ -12,17 +12,67 @@ final class MobileDataViewController: UIViewController, Alertable {
 
     var viewModel: MobileDataViewModel!
 
+    let collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        let cv = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: flowLayout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = .white
+        return cv
+    }()
+
+    private let reuseIdentifier = "cell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
+        fetchData()
+        setupCollectionView()
+    }
+
+    private func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         self.title = viewModel.screenTitle
+    }
 
+    private func fetchData() {
         viewModel.fetchMobileUsageData { [weak self] error in
             if let error = error, let message = error.message {
                 self?.showAlert(message: message)
                 return
             }
+            self?.collectionView.reloadData()
         }
+    }
+
+    private func setupCollectionView() {
+        view.addSubview(collectionView)
+
+        collectionView.dataSource = self
+        collectionView.delegate = self
+
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
+        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        collectionView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+    }
+
+}
+
+extension MobileDataViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 100)
     }
 
 }
