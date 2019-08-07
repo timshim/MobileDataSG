@@ -87,4 +87,9 @@ class MobileDataSGUITests: XCTestCase {
         XCTAssertTrue(alert.exists)
     }
 
+    func test_activityIndicator_isRemovedWhenDataLoaded() {
+        let activityIndicator = self.sut.collectionViews.activityIndicators["In progress"]
+        XCTAssertFalse(activityIndicator.exists)
+    }
+
 }
