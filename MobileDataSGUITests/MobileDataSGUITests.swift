@@ -19,6 +19,11 @@ class MobileDataSGUITests: XCTestCase {
 
         sut = XCUIApplication()
         sut.launch()
+
+        let activityIndicator = sut.collectionViews.activityIndicators["In progress"]
+        let exists = NSPredicate(format: "exists == false")
+        expectation(for: exists, evaluatedWith: activityIndicator, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
     }
 
     override func tearDown() {
@@ -88,7 +93,7 @@ class MobileDataSGUITests: XCTestCase {
     }
 
     func test_activityIndicator_isRemovedWhenDataLoaded() {
-        let activityIndicator = self.sut.collectionViews.activityIndicators["In progress"]
+        let activityIndicator = sut.collectionViews.activityIndicators["In progress"]
         XCTAssertFalse(activityIndicator.exists)
     }
 

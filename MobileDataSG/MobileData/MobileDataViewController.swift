@@ -18,6 +18,7 @@ final class MobileDataViewController: UIViewController, Alertable {
         flowLayout.minimumInteritemSpacing = 0
         let cv = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: flowLayout)
         cv.backgroundColor = .white
+        cv.accessibilityIdentifier = "collectionView"
         return cv
     }()
 
