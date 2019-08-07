@@ -36,8 +36,10 @@ class MobileDataSGUITests: XCTestCase {
     }
 
     func test_collectionView_has10cells() {
-        let collectionCells = sut.collectionViews.children(matching: .cell)
-        XCTAssertEqual(collectionCells.count, 9)
+        sut.swipeUp()
+        sut.swipeUp()
+        let collectionCells = sut.collectionViews.cells
+        XCTAssertEqual(collectionCells.count, 10)
     }
 
     func test_collectionViewCells_include2labels() {
